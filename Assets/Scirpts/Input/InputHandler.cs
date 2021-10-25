@@ -32,6 +32,7 @@ namespace House312B.Input
                 Destroy(gameObject);
             }
             _inputController = new InputController();
+            _inputController.Enable();
         }
     }
 }
