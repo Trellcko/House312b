@@ -7,17 +7,17 @@ namespace House312B.Interaction
 {
     public class Interactable : SerializedMonoBehaviour
     {
-        [SerializeField] private List<InteractionInfo> _interactionData;
-        [SerializeField] private List<InteractionKeyAnimator> _interactionKeyAnimators;
+        [SerializeField] private List<InteractionInfo> _interactionInfo;
+        [SerializeField] private List<KeyAnimator> _interactionKeyAnimators;
 
         private bool _isInteracting = false;
 
         private void Start()
         {
-            Assert.AreEqual(_interactionKeyAnimators.Count, _interactionData.Count, "Key animatiors count are not equal interaction data count");
-            for(int i = 0; i < _interactionData.Count; i++)
+            Assert.AreEqual(_interactionKeyAnimators.Count, _interactionInfo.Count, "Key animatiors count are not equal interaction data count");
+            for(int i = 0; i < _interactionInfo.Count; i++)
             {
-                _interactionKeyAnimators[i].SetSprite(_interactionData[i].KeySprite);
+                _interactionKeyAnimators[i].SetSprite(_interactionInfo[i].Key.Sprite);
             }
         }
 
@@ -43,9 +43,9 @@ namespace House312B.Interaction
 
         public void Interact()
         {
-            foreach (var interactData in _interactionData)
+            foreach (var interactInfo in _interactionInfo)
             {
-                interactData.Action.TryDo();
+                interactInfo.TryDoActions();
             }
         }
 

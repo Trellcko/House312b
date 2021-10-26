@@ -2,6 +2,6 @@
 {
     public interface IInteractAction
     {
-        bool TryDo();
+        void Do();
     }
 }

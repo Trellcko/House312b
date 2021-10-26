@@ -6,14 +6,9 @@ namespace House312B.Interaction
 {
     public class TestInteractionAction : MonoBehaviour, IInteractAction
     {
-        public bool TryDo()
+        public void Do()
         {
-            if(Keyboard.current.dKey.wasPressedThisFrame)
-            {
-                Debug.Log("Test Interaction");
-                return true;
-            }
-            return false;
+            Debug.Log("Test Interaction");
         }
     }
 }

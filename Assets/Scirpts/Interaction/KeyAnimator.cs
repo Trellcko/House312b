@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace House312B.Interaction
 {
-    public class InteractionKeyAnimator : MonoBehaviour
+    public class KeyAnimator : MonoBehaviour
     {
         [SerializeField] private Animator _animator;
         [SerializeField] private SpriteRenderer _spriteRenderer;
