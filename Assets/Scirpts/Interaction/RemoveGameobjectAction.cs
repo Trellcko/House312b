@@ -10,5 +10,10 @@ namespace House312B.Interaction
         {
             Destroy(_target);
         }
+
+        public void Reset()
+        {
+
+        }
     }
 }

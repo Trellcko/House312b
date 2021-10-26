@@ -22,5 +22,10 @@ namespace House312B.Interaction
         {
             _inventory.RemoveItem(_itemData);
         }
+
+        public void Reset()
+        {
+
+        }
     }
 }

@@ -21,5 +21,9 @@ namespace House312B.Interaction
         {
             _inventory.AddItem(_itemData);
         }
+        public void Reset()
+        {
+
+        }
     }
 }

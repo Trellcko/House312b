@@ -10,5 +10,10 @@ namespace House312B.Interaction
         {
             Debug.Log("Test Interaction");
         }
+
+        public void Reset()
+        {
+            Debug.Log("Reset Interaction");
+        }
     }
 }

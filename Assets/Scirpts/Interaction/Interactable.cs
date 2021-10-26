@@ -39,6 +39,9 @@ namespace House312B.Interaction
         {
             _isInteracting = false;
             HideInteractionKeysImage();
+            ResetActions();
+
+
         }
 
         public void Interact()
@@ -46,6 +49,14 @@ namespace House312B.Interaction
             foreach (var interactInfo in _interactionInfo)
             {
                 interactInfo.TryDoActions();
+            }
+        }
+
+        public void ResetActions()
+        {
+            foreach (var interactInfo in _interactionInfo)
+            {
+                interactInfo.ResetActions();
             }
         }
 

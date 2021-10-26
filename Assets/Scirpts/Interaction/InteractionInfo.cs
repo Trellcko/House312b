@@ -31,8 +31,14 @@ namespace House312B.Interaction
                 action.Do();
             }
             return true;
+        }
 
-            ;
+        public void ResetActions()
+        {
+            foreach (var action in _actions)
+            {
+                action.Reset();
+            }
         }
     }
 }

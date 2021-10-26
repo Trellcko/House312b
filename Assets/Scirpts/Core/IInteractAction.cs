@@ -3,5 +3,7 @@
     public interface IInteractAction
     {
         void Do();
+
+        void Reset();
     }
 }
