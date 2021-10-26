@@ -14,12 +14,19 @@ namespace House312B.DialogSystem
         public void ResetIndex()
         {
             _index = 0;
+            _dialogUI.Animator.Hide();
         }
 
         public void ShowNext()
         {
             _dialogUI.AttachTo(_replics[_index].Point.position);
             _dialogUI.Display(_replics[_index].Text);
+            
+            if (_index == 0)
+            {
+                _dialogUI.Animator.Show();
+            }
+            
             _index = _index + 1 == _replics.Count ? 0 : _index + 1;
         }
     }

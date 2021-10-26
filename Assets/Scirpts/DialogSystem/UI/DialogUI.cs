@@ -7,9 +7,9 @@ namespace House312B.DialogSystem.UI
 {
     public class DialogUI : MonoBehaviour
     {
+        [field: SerializeField] public DialogUIAnimator Animator { get; private set; }
+     
         [SerializeField] private TextMeshProUGUI _textBox;
-
-        [SerializeField] private DialogUIAnimator _dialogUIAnimator;
 
         [SerializeField] private Transform _attachPoint;
 
