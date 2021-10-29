@@ -17,7 +17,7 @@ namespace House312B.Input
             } 
         }
 
-        public InputAction PlayerMovemt => _inputController.Player.Movement;
+        public InputAction PlayerMovement => _inputController.Player.Movement;
 
         private static InputHandler s_instance;
 

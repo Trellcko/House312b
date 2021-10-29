@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace House312B.Player
 {
+    [RequireComponent(typeof(Collider2D))]
     public class Interacting : MonoBehaviour
     {
         private Interactable _interactable;
@@ -16,7 +17,7 @@ namespace House312B.Player
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if(_interactable)
+            if(_interactable != null)
             {
                 _interactable.DisableInteraction();
                 _interactable = null;

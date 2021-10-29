@@ -1,4 +1,5 @@
 using House312B.Core;
+using House312B.Utils;
 using UnityEngine;
 
 namespace House312B.TransformModule
@@ -7,6 +8,11 @@ namespace House312B.TransformModule
     {
         [SerializeField] private Transform _transform;
 
+
+        private void Start()
+        {
+            QuickAssert.AssertIsNotNullAfterAssigment(_transform);
+        }
         public void Flip()
         {
             Vector3 theScale = _transform.localScale;

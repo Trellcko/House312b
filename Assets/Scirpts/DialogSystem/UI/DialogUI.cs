@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using House312B.Animation;
+using House312B.Utils;
 using TMPro;
 using UnityEngine;
 
@@ -7,11 +7,22 @@ namespace House312B.DialogSystem.UI
 {
     public class DialogUI : MonoBehaviour
     {
-        [field: SerializeField] public DialogUIAnimator Animator { get; private set; }
+
+        [SerializeField] private Animator _animator;
      
         [SerializeField] private TextMeshProUGUI _textBox;
 
         [SerializeField] private Transform _attachPoint;
+        public ActiveAnimation Animator { get; private set; }
+
+        private void Start()
+        {
+            QuickAssert.AssertIsNotNullAfterAssigment(_animator);
+            QuickAssert.AssertIsNotNullAfterAssigment(_textBox);
+            QuickAssert.AssertIsNotNullAfterAssigment(_attachPoint);
+
+            Animator = new ActiveAnimation(_animator);
+        }
 
         public void AttachTo(Vector2 position)
         {

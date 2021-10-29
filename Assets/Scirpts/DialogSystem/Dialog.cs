@@ -1,4 +1,5 @@
 using House312B.DialogSystem.UI;
+using House312B.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,10 +12,15 @@ namespace House312B.DialogSystem
 
         private int _index = 0;
 
+        private void Start()
+        {
+            QuickAssert.AssertIsNotNullAfterAssigment(_dialogUI);
+        }
+
         public void ResetIndex()
         {
             _index = 0;
-            _dialogUI.Animator.Hide();
+            _dialogUI.Animator.PlayHideAnimation();
         }
 
         public void ShowNext()
@@ -24,7 +30,7 @@ namespace House312B.DialogSystem
             
             if (_index == 0)
             {
-                _dialogUI.Animator.Show();
+                _dialogUI.Animator.PlayShowAnimation();
             }
             
             _index = _index + 1 == _replics.Count ? 0 : _index + 1;
