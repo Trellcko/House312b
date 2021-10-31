@@ -11,19 +11,17 @@ namespace House312B.Input
             { 
                 if(s_instance == null)
                 {
-                    s_instance = new GameObject(InputHandlerName).AddComponent<InputHandler>();
+                    s_instance = new GameObject(nameof(InputHandler)).AddComponent<InputHandler>();
                 }
                 return s_instance;
             } 
         }
 
-        public InputAction PlayerMovemt => _inputController.Player.Movement;
+        public InputAction PlayerMovement => _inputController.Player.Movement;
 
         private static InputHandler s_instance;
 
         private InputController _inputController;
-
-        private const string InputHandlerName = "InputHandler";
 
         private void Awake()
         {
@@ -33,6 +31,7 @@ namespace House312B.Input
             }
             _inputController = new InputController();
             _inputController.Enable();
+            DontDestroyOnLoad(this);
         }
     }
 }
