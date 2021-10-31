@@ -1,3 +1,4 @@
+using House312B.Interaction.Checkers;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,25 +8,26 @@ namespace House312B.Interaction
 {
     public class Interactable : SerializedMonoBehaviour
     {
-        [SerializeField] private List<InteractionInfo> _interactionData;
-        [SerializeField] private List<InteractionKeyAnimator> _interactionKeyAnimators;
+        [SerializeField] private List<ActionsInfo> _interactActionsInfo;
+
+        [SerializeField] private List<ActionsInfo> _disableActionsInfo;
+
+        [SerializeField] private List<ActionsInfo> _enableActionsInfo;
+
+        [SerializeField] private List<Key> _key;
 
         private bool _isInteracting = false;
 
         private void Start()
         {
-            Assert.AreEqual(_interactionKeyAnimators.Count, _interactionData.Count, "Key animatiors count are not equal interaction data count");
-            for(int i = 0; i < _interactionData.Count; i++)
-            {
-                _interactionKeyAnimators[i].SetSprite(_interactionData[i].KeySprite);
-            }
+            Assert.AreEqual(_key.Count, _interactActionsInfo.Count, "Key animatiors count are not equal interaction data count");
         }
 
         public void Update()
         {
             if (_isInteracting)
             {
-                Interact();
+                TryDoActions(_interactActionsInfo);
             }
         }
 
@@ -33,35 +35,41 @@ namespace House312B.Interaction
         {
             _isInteracting = true;
             ShowInteractionKeysImage();
+            TryDoActions(_enableActionsInfo);
         }
 
         public void DisableInteraction()
         {
             _isInteracting = false;
             HideInteractionKeysImage();
+            TryDoActions(_disableActionsInfo);
+
+
         }
 
-        public void Interact()
+        public void TryDoActions(List<ActionsInfo> interactionInfo)
         {
-            foreach (var interactData in _interactionData)
+            foreach (var interactInfo in interactionInfo)
             {
-                interactData.Action.TryDo();
+                interactInfo.TryDoActions();
             }
         }
 
+
+
         private void ShowInteractionKeysImage()
         {
-            foreach (var interactionKey in _interactionKeyAnimators)
+            foreach (var interactionKey in _key)
             {
-                interactionKey.PlayShowAnimation();
+                interactionKey.ActiveAnimations.PlayShowAnimation();
             }
         }
 
         private void HideInteractionKeysImage()
         {
-            foreach (var interactionKey in _interactionKeyAnimators)
+            foreach (var interactionKey in _key)
             {
-                interactionKey.PlayHideAnimation();
+                interactionKey.ActiveAnimations.PlayHideAnimation();
             }
         }
     }
