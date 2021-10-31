@@ -19,15 +19,26 @@ namespace House312B.Player
 
         private void OnEnable()
         {
-            InputHandler.Instace.PlayerMovement.performed += OnPlayerMovementPerformed;
-            InputHandler.Instace.PlayerMovement.canceled += OnPlayerMovementCanceled;
+            Subscribe();
         }
         private void OnDisable()
         {
-            InputHandler.Instace.PlayerMovement.performed -= OnPlayerMovementPerformed;
-            InputHandler.Instace.PlayerMovement.canceled -= OnPlayerMovementCanceled;
+            UnSubscribe();
         }
 
+        public void UnSubscribe()
+        {
+            InputHandler.Instace.PlayerMovement.performed -= OnPlayerMovementPerformed;
+            InputHandler.Instace.PlayerMovement.canceled -= OnPlayerMovementCanceled;
+            _moveAnimation.PlayIdleAnimation();
+        }
+
+        public void Subscribe()
+        {
+            InputHandler.Instace.PlayerMovement.performed += OnPlayerMovementPerformed;
+            InputHandler.Instace.PlayerMovement.canceled += OnPlayerMovementCanceled;
+            
+        }
 
         private void OnPlayerMovementCanceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
         {

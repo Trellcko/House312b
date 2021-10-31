@@ -42,7 +42,6 @@ namespace House312B.Interaction
         {
             _isInteracting = false;
             HideInteractionKeysImage();
-            Debug.Log("TryDisable " + gameObject.transform.parent.name);
             TryDoActions(_disableActionsInfo);
 
 
@@ -50,7 +49,6 @@ namespace House312B.Interaction
 
         public void TryDoActions(List<ActionsInfo> interactionInfo)
         {
-            Debug.Log(gameObject.transform.parent.name);
             foreach (var interactInfo in interactionInfo)
             {
                 interactInfo.TryDoActions();

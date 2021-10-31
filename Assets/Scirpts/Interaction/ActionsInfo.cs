@@ -3,7 +3,7 @@ using House312B.Core;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 
-namespace House312B.Interaction 
+namespace House312B.Interaction
 {
     public class ActionsInfo : SerializedMonoBehaviour
     {

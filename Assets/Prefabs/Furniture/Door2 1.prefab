@@ -131,6 +131,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 5459210432901707867}
   _newSprite: {fileID: -1678507856714581167, guid: 2374db3f2de2aef4aae8082e8be9182f, type: 3}
+--- !u!1 &4327036033726591749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 344156641103802116}
+  - component: {fileID: 6329880037691546279}
+  m_Layer: 0
+  m_Name: PlaySound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &344156641103802116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327036033726591749}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7841745218327558893}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6329880037691546279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327036033726591749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c565f6d2a8be3d54487bc18a1e4579f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 868358f8478ae174cb3611efcddef5dc, type: 3}
 --- !u!1 &4913836702133825082
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +277,7 @@ GameObject:
   m_Layer: 0
   m_Name: Door2 1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -361,6 +405,7 @@ Transform:
   - {fileID: 1009447889720953770}
   - {fileID: 8745792445363083852}
   - {fileID: 3327691165603092994}
+  - {fileID: 344156641103802116}
   m_Father: {fileID: 1053185621}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -383,6 +428,7 @@ MonoBehaviour:
     - {fileID: 1167030955829286142}
     - {fileID: 3502158208208112599}
     - {fileID: 2230450594293537893}
+    - {fileID: 6329880037691546279}
     - {fileID: 5527589579787972878}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -395,7 +441,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 4
     - Name: 
       Entry: 10
       Data: 0
@@ -405,6 +451,9 @@ MonoBehaviour:
     - Name: 
       Entry: 10
       Data: 2
+    - Name: 
+      Entry: 10
+      Data: 3
     - Name: 
       Entry: 13
       Data: 
@@ -420,7 +469,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 10
-      Data: 3
+      Data: 4
     - Name: 
       Entry: 13
       Data: 

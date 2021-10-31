@@ -11,7 +11,7 @@ namespace House312B.Input
             { 
                 if(s_instance == null)
                 {
-                    s_instance = new GameObject(InputHandlerName).AddComponent<InputHandler>();
+                    s_instance = new GameObject(nameof(InputHandler)).AddComponent<InputHandler>();
                 }
                 return s_instance;
             } 
@@ -23,8 +23,6 @@ namespace House312B.Input
 
         private InputController _inputController;
 
-        private const string InputHandlerName = "InputHandler";
-
         private void Awake()
         {
             if(FindObjectsOfType<InputHandler>().Length > 1)
@@ -33,6 +31,7 @@ namespace House312B.Input
             }
             _inputController = new InputController();
             _inputController.Enable();
+            DontDestroyOnLoad(this);
         }
     }
 }

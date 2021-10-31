@@ -21,14 +21,24 @@ namespace House312B.Player
 
         private void OnEnable()
         {
-            InputHandler.Instace.PlayerMovement.performed += Move;
-            InputHandler.Instace.PlayerMovement.canceled += StopMoving;
+            Subscribe();
+        }
+        private void OnDisable()
+        {
+            UnSubscribe();
         }
 
-        private void OnDisable()
+        public void UnSubscribe()
         {
             InputHandler.Instace.PlayerMovement.performed -= Move;
             InputHandler.Instace.PlayerMovement.canceled -= StopMoving;
+            _xInput = 0;
+        }
+
+        public void Subscribe()
+        {
+            InputHandler.Instace.PlayerMovement.performed += Move;
+            InputHandler.Instace.PlayerMovement.canceled += StopMoving;
         }
 
         private void FixedUpdate()
